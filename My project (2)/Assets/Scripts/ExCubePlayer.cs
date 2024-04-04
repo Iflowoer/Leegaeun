@@ -44,7 +44,7 @@ public class ExCubePlayer : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log(collision.gameObject.name);
+        Debug.Log(collision.gameObject.Tag);
         Point = 0;
         gameObject.transform.position = Vector3.zero;
     }
