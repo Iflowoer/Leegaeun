@@ -1,13 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ExRay : MonoBehaviour
 {
-    
+    public Text UIText;
+    public int Point;
+    public float checkEndTime = 30.0f;
+
     // Update is called once per frame
     void Update()
     {
+        checkEndTime -= Time.deltaTime;
+
+        if(checkEndTime<=0)
+        {
+            PlayerPrefs.SetInt("Point", Point);
+            SceneManager.LoadScene("ResultScene");
+        }
+
         if(Input.GetMouseButton(1))                 //GetMouseButton(1) 오른쪽 버튼 마우스가 눌렸을 때
         {
             Ray cast = Camera.main.ScreenPointToRay(Input.mousePosition);   //Ray를 정의하고 카메라의 마우스 위치에서 Ray를 쏜다.
@@ -23,6 +36,7 @@ public class ExRay : MonoBehaviour
                 {
                     Destroy(hit.collider.gameObject);
                     Point += 1;
+                    if (Point >= 10) DoChangeScene();
                 }
             }
             else
@@ -32,5 +46,10 @@ public class ExRay : MonoBehaviour
 
             UIText.text = Point.ToString();
         }
+    }
+
+    void DoChangeScene()
+    {
+        SceneManager.LoadScene("ResultScene");
     }
 }

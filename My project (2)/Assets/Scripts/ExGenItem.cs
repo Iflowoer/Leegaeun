@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExGenItem : MonoBehaviour
 {
 
-    public GemaObject ItemBox;
+    public GameObject ItemBox;
     public float checkTime;
 
     // Start is called before the first frame update

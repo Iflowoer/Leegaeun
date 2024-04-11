@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ExCubePlayer : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ExCubePlayer : MonoBehaviour
 
     public int Point = 0;               //점수 수치
     public float checkTime = 0.0f;      //시간 체크 표시
+    public float checkEndTime = 30.0f;  //게임 종료 시간
 
     public Rigidbody m_Rigidbody;       //오브젝트의 강체
 
@@ -24,6 +26,14 @@ public class ExCubePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        checkEndTime -= Time.deltaTime;
+
+        if(checkEndTime<=0)
+        {
+            PlayerPrefs.SetInt("Point", Point);
+            SceneManager.LoadScene("ResultScene");
+        }
+
         checkTime += Time.deltaTime;            //시간을 누적해서 쌓는다.
         if (checkTime >= 1.0f)                  //1초마다 어떤 행동을 한다.
         {
@@ -44,7 +54,7 @@ public class ExCubePlayer : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.Tag);
+        Debug.Log(collision.gameObject.tag);
         Point = 0;
         gameObject.transform.position = Vector3.zero;
     }
