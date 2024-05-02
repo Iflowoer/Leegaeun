@@ -5,11 +5,11 @@ using DG.Tweening;
 
 public class TweenColor : MonoBehaviour
 {
-    private Renderer renderer;                      //렌더러를 선언 
+    private Renderer rendererr;                      //렌더러를 선언 
     // Start is called before the first frame update
     void Start()
     {
-        renderer = GetComponent<Renderer>();        //컴포넌트를 가져온다.
+        rendererr = GetComponent<Renderer>();        //컴포넌트를 가져온다.
     }
 
     // Update is called once per frame
@@ -19,10 +19,10 @@ public class TweenColor : MonoBehaviour
         {
             Color color = new Color(Random.value, Random.value, Random.value);      //랜덤 색을 가져온다.
 
-            renderer.material.DOColor(color, 1f)                    //랜덤색으로 1초 후에 변경.
+            rendererr.material.DOColor(color, 1f)                    //랜덤색으로 1초 후에 변경.
                 .SetEase(Ease.InOutQuad);
 
-            renderer.material.DOPlay();                             //여러 트윈을 한꺼번에 실행 시킨다.
+            rendererr.material.DOPlay();                             //여러 트윈을 한꺼번에 실행 시킨다.
         }
     }
 }
