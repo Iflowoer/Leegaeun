@@ -102,6 +102,9 @@ MonoBehaviour:
   isDrag: 0
   isUsed: 0
   index: 1
+  EndTime: 0
+  SpriteRenderer: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!50 &-4809010075368178046
 Rigidbody2D:
   serializedVersion: 4
@@ -126,8 +129,8 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &1081359421275723314
 CircleCollider2D:
