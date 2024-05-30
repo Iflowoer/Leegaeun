@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject[] CircleObject;       //물체 프리팹을 가져옴
-    public Transform genTransform;          //생성위이 설정
+    public Transform genTransform;          //생성위치 설정
     public float timeCheck;                 //생성 시간 설정 변구 float
     public bool isGen;                      //생성체크 bool
 
